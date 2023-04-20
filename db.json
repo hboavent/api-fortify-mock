@@ -34,24 +34,6 @@
       "siteId": null,
       "latestScanId": null,
       "mode": "BASIC",
-      "currentState": {
-        "id": 459418816,
-        "committed": false,
-        "attentionRequired": false,
-        "analysisResultsExist": false,
-        "auditEnabled": false,
-        "lastFprUploadDate": null,
-        "extraMessage": null,
-        "analysisUploadEnabled": true,
-        "batchBugSubmissionExists": false,
-        "hasCustomIssues": false,
-        "metricEvaluationDate": null,
-        "deltaPeriod": 7,
-        "issueCountDelta": 0,
-        "percentAuditedDelta": 0.0,
-        "criticalPriorityIssueCountDelta": 0,
-        "percentCriticalPriorityIssuesAuditedDelta": 0.0
-      },
       "bugTrackerPluginId": null,
       "bugTrackerEnabled": false,
       "securityGroup": null,
@@ -64,30 +46,7 @@
     },
     "responseCode": 201,
     "links": {
-      "performanceIndicatorHistories": {
-        "href": "http://fortify.intraservice.corp:8080/ssc/api/v1/projectVersions/459418816/performanceIndicatorHistories"
-      },
-      "authEntities": {
-        "href": "http://fortify.intraservice.corp:8080/ssc/api/v1/projectVersions/459418816/authEntities"
-      },
-      "variableHistories": {
-        "href": "http://fortify.intraservice.corp:8080/ssc/api/v1/projectVersions/459418816/variableHistories"
-      },
-      "responsibilities": {
-        "href": "http://fortify.intraservice.corp:8080/ssc/api/v1/projectVersions/459418816/responsibilities"
-      },
-      "customTags": {
-        "href": "http://fortify.intraservice.corp:8080/ssc/api/v1/projectVersions/459418816/customTags"
-      },
-      "attributes": {
-        "href": "http://fortify.intraservice.corp:8080/ssc/api/v1/projectVersions/459418816/attributes"
-      },
-      "iidMigrations": {
-        "href": "http://fortify.intraservice.corp:8080/ssc/api/v1/projectVersions/459418816/iidMigrations"
-      },
-      "artifacts": {
-        "href": "http://fortify.intraservice.corp:8080/ssc/api/v1/projectVersions/459418816/artifacts"
-      }
+      
     }
   }
 }

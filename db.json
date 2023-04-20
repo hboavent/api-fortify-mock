@@ -1,4 +1,9 @@
 {
+  "projectVersions": {
+    "data": {
+      "id": 123
+    }
+  },
   "posts": [
     {
       "id": 1,

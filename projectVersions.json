@@ -1,0 +1,91 @@
+{
+  "data": {
+    "id": 459418816,
+    "project": {
+      "id": 459418814,
+      "name": "uif-cadu-pipeline-6",
+      "description": null,
+      "creationDate": "2023-04-20T17:17:16.542+00:00",
+      "createdBy": "p-hboaventura",
+      "issueTemplateId": null
+    },
+    "name": "dev",
+    "description": "",
+    "createdBy": "p-hboaventura",
+    "creationDate": "2023-04-20T17:17:16.544+00:00",
+    "sourceBasePath": null,
+    "committed": false,
+    "issueTemplateId": null,
+    "issueTemplateName": null,
+    "loadProperties": null,
+    "staleIssueTemplate": false,
+    "snapshotOutOfDate": false,
+    "refreshRequired": false,
+    "attachmentsOutOfDate": false,
+    "migrationVersion": null,
+    "masterAttrGuid": null,
+    "tracesOutOfDate": false,
+    "issueTemplateModifiedTime": 1682011036544,
+    "active": true,
+    "obfuscatedId": null,
+    "owner": "",
+    "serverVersion": 22.1,
+    "siteId": null,
+    "latestScanId": null,
+    "mode": "BASIC",
+    "currentState": {
+      "id": 459418816,
+      "committed": false,
+      "attentionRequired": false,
+      "analysisResultsExist": false,
+      "auditEnabled": false,
+      "lastFprUploadDate": null,
+      "extraMessage": null,
+      "analysisUploadEnabled": true,
+      "batchBugSubmissionExists": false,
+      "hasCustomIssues": false,
+      "metricEvaluationDate": null,
+      "deltaPeriod": 7,
+      "issueCountDelta": 0,
+      "percentAuditedDelta": 0.0,
+      "criticalPriorityIssueCountDelta": 0,
+      "percentCriticalPriorityIssuesAuditedDelta": 0.0
+    },
+    "bugTrackerPluginId": null,
+    "bugTrackerEnabled": false,
+    "securityGroup": null,
+    "status": null,
+    "assignedIssuesCount": 0,
+    "customTagValuesAutoApply": null,
+    "autoPredict": null,
+    "predictionPolicy": null,
+    "_href": "http://fortify.intraservice.corp:8080/ssc/api/v1/projectVersions/459418816"
+  },
+  "responseCode": 201,
+  "links": {
+    "performanceIndicatorHistories": {
+      "href": "http://fortify.intraservice.corp:8080/ssc/api/v1/projectVersions/459418816/performanceIndicatorHistories"
+    },
+    "authEntities": {
+      "href": "http://fortify.intraservice.corp:8080/ssc/api/v1/projectVersions/459418816/authEntities"
+    },
+    "variableHistories": {
+      "href": "http://fortify.intraservice.corp:8080/ssc/api/v1/projectVersions/459418816/variableHistories"
+    },
+    "responsibilities": {
+      "href": "http://fortify.intraservice.corp:8080/ssc/api/v1/projectVersions/459418816/responsibilities"
+    },
+    "customTags": {
+      "href": "http://fortify.intraservice.corp:8080/ssc/api/v1/projectVersions/459418816/customTags"
+    },
+    "attributes": {
+      "href": "http://fortify.intraservice.corp:8080/ssc/api/v1/projectVersions/459418816/attributes"
+    },
+    "iidMigrations": {
+      "href": "http://fortify.intraservice.corp:8080/ssc/api/v1/projectVersions/459418816/iidMigrations"
+    },
+    "artifacts": {
+      "href": "http://fortify.intraservice.corp:8080/ssc/api/v1/projectVersions/459418816/artifacts"
+    }
+  }
+}

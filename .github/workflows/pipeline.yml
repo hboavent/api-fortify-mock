@@ -43,7 +43,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Change version
-        run: $version='1.0.1'
+        run: $version=1.0.1
 
   echo-version:
     runs-on: ubuntu-latest

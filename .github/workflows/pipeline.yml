@@ -37,4 +37,17 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-          echp ${{ env.version }}
+          echo ${{ env.version }}
+
+  bump:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Change version
+        run: $version='1.0.1'
+
+  echo-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: New version
+        run: echo ${{ env.version }}
+

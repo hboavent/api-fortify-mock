@@ -25,8 +25,9 @@ on:
 
 jobs:
   print-tag:
+    name: GMUDI REQUI
     runs-on: ubuntu-latest
-    environment: ${{ inputs.environment }}
+    environment: gmud
     steps:
       - name: Print the input tag to STDOUT
         run: echo  The tags are ${{ inputs.tags }} 

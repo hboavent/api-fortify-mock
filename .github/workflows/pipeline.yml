@@ -23,6 +23,10 @@ jobs:
           distribution: 'temurin'
       - name: Maven Test
         run: mvn test
+      - uses: actions/cache@v3
+        with:
+          path: ~/.m2/repository
+          key: maven-${{ hashFiles('**/pom.xml') }}
   step-2:
     name: Maven Test Again
     needs: step-1
@@ -34,5 +38,9 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
+      - uses: actions/cache/restore@v3
+        with:
+          path: ~/.m2/repository
+          key: maven-${{ hashFiles('**/pom.xml') }}
       - name: Maven Test again
         run: mvn test -o

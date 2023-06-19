@@ -5,19 +5,6 @@ name: CI
 on:
   workflow_dispatch:
     inputs:
-      logLevel:
-        description: 'Log level'
-        required: true
-        default: 'warning'
-        type: choice
-        options:
-          - info
-          - warning
-          - debug
-      tags:
-        description: 'Test scenario tags'
-        required: true
-        type: string
       environment:
         description: 'Environment to run tests against'
         type: environment
@@ -28,13 +15,24 @@ jobs:
     name: Maven Test
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
       - name: Maven Test
         run: mvn test
-
   step-2:
     name: Maven Test Again
     needs: step-1
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
       - name: Maven Test again
         run: mvn test

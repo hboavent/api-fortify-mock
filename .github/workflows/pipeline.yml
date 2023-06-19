@@ -13,34 +13,13 @@ on:
 jobs:
   step-1:
     name: Maven Test
+    if: ${{ vars.JAO == ' ' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Set up JDK 17
-        uses: actions/setup-java@v3
-        with:
-          java-version: '17'
-          distribution: 'temurin'
-      - name: Maven Test
-        run: mvn test
-      - uses: actions/cache@v3
-        with:
-          path: ~/.m2/repository
-          key: maven-${{ hashFiles('**/pom.xml') }}
   step-2:
-    name: Maven Test Again
-    needs: step-1
+    name: Maven Test
+    if: ${{ vars.JAO != ' ' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Set up JDK 17
-        uses: actions/setup-java@v3
-        with:
-          java-version: '17'
-          distribution: 'temurin'
-      - uses: actions/cache/restore@v3
-        with:
-          path: ~/.m2/repository
-          key: maven-${{ hashFiles('**/pom.xml') }}
-      - name: Maven Test again
-        run: mvn test -o

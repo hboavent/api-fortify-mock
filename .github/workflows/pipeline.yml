@@ -35,4 +35,4 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
       - name: Maven Test again
-        run: mvn test
+        run: mvn test -o

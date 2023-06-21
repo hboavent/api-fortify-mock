@@ -12,14 +12,7 @@ on:
 
 jobs:
   step-1:
-    name: Maven Test Vazio
-    if: ${{ vars.JAO == ' ' || vars.JAO == '' }}
+    name: Teste
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-  step-2:
-    name: Maven Test Não Vazio
-    if: ${{ vars.JAO != ' ' }}
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
+      - run: echo ${{ github.event.head_commit.message }}

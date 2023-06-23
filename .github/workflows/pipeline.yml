@@ -11,6 +11,7 @@ jobs:
     name: Teste
     with:
       message: ${{ github.event.head_commit.message }}
+      skip-bump: true
 
   step-2:
     runs-on: ubuntu-latest

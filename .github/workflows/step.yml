@@ -6,6 +6,9 @@ on:
       message:
         required: true
         type: string
+      skip-bump:
+        type: boolean
+        default: false
     outputs:
       version:
         value: ${{ jobs.bump-version.outputs.version }}
@@ -38,6 +41,13 @@ jobs:
           level: ${{ steps.semantic-tag.outputs.match == '' && 'patch' || steps.semantic-tag.outputs.group1 }}
 
       - name: Update version
+        if: ${{ inputs.skip-bump == false }}
         run: |
           echo "version=${{ steps.bump-semver.outputs.new_version }}" >> "$GITHUB_ENV"
-          echo '${{ steps.bump-semver.outputs.new_version }}'
+          echo '${{ env.version }}'
+
+      - name: Keep version
+        if: ${{ inputs.skip-bump == true }}
+        run: |
+          echo "version=${{ steps.current-version.outputs.version }}" >> "$GITHUB_ENV"
+          echo '${{ env.version }}'

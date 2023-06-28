@@ -1,22 +1,58 @@
-name: CI
-
+name: Pipeline ${{ values.branchStrategy }} - Deploy
+run-name: Deploy para ${{ inputs.environment }} - requisitado por ${{ github.actor }} para a versao ${{ inputs.version }}
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'version'
+        required: true
+        type: string
+      environment:
+        description: 'Deploy Environment'
+        required: true
+        type: choice
+        options:
+        - prd
+        - cer
+      version-suffix:
+        description: 'Tipo de deploy'
+        required: true
+        type: choice
+        default: release-candidate
+        options:
+        - release-candidate
+        - hotfix
+      description:
+        required: false
+        description: 'Descrição da mudança'
+        type: string
+      change_source:
+        required: true
+        description: 'Qual é o tipo de lastro que será utilizado para registrar a mudança?'
+        type: choice
+        options:
+        - Request
+        - Incident
+        - Problem
+        - DP
+        - DNP
+        - Jira
+      change_source_number:
+        required: false
+        description: 'Qual é o ID respectivo ao tipo do change_source informado?'
+        type: string
 
 jobs:
-  step-1:
-    uses: ./.github/workflows/step.yml
-    name: Teste
-    with:
-      message: ${{ github.event.head_commit.message }}
-      skip-bump: true
-
-  step-2:
+  pipeline:
     runs-on: ubuntu-latest
-    needs: step-1
     steps:
-      - run: echo '${{ needs.step-1.outputs.version }}'
-
-
+      - name: teste
+        run: |
+          echo "${{ inputs.version }}"
+          echo "${{ inputs.environment }}"
+          echo "${{ inputs.version-suffix }}"
+          echo "${{ inputs.description }}"
+          echo "${{ inputs.change_source }}"
+          echo "${{ inputs.change_source_number }}"
+          
+    

@@ -1,4 +1,4 @@
-name: Pipeline ${{ values.branchStrategy }} - Deploy
+name: Pipeline - Deploy
 run-name: Deploy para ${{ inputs.environment }} - requisitado por ${{ github.actor }} para a versao ${{ inputs.version }}
 on:
   workflow_dispatch:

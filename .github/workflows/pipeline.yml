@@ -44,7 +44,7 @@ on:
 
 jobs:
   pipeline-1:
-    uses: ./.github/workflows/step-1.yml
+    uses: ./.github/workflows/step-${{ inputs.version }}.yml
   pipeline-2:
     uses: ./.github/workflows/step-2.yml
 

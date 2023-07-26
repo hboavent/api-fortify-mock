@@ -47,12 +47,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: teste
-        run: |
-          echo "${{ inputs.version }}"
-          echo "${{ inputs.environment }}"
-          echo "${{ inputs.version-suffix }}"
-          echo "${{ inputs.description }}"
-          echo "${{ inputs.change_source }}"
-          echo "${{ inputs.change_source_number }}"
-          
-    
+        uses: ./.github/wokflows/step-1.yml
+
+

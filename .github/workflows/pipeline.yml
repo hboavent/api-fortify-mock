@@ -1,4 +1,4 @@
-name: Main pipeline
+name: Main
 
 on:
   push:

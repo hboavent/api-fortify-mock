@@ -1,51 +1,13 @@
-name: Pipeline - Deploy
-run-name: Deploy para ${{ inputs.environment }} - requisitado por ${{ github.actor }} para a versao ${{ inputs.version }}
-on:
-  workflow_dispatch:
-    inputs:
-      version:
-        description: 'version'
-        required: true
-        type: string
-      environment:
-        description: 'Deploy Environment'
-        required: true
-        type: choice
-        options:
-        - prd
-        - cer
-      version-suffix:
-        description: 'Tipo de deploy'
-        required: true
-        type: choice
-        default: release-candidate
-        options:
-        - release-candidate
-        - hotfix
-      description:
-        required: false
-        description: 'Descrição da mudança'
-        type: string
-      change_source:
-        required: true
-        description: 'Qual é o tipo de lastro que será utilizado para registrar a mudança?'
-        type: choice
-        options:
-        - Request
-        - Incident
-        - Problem
-        - DP
-        - DNP
-        - Jira
-      change_source_number:
-        required: false
-        description: 'Qual é o ID respectivo ao tipo do change_source informado?'
-        type: string
+name: Main
+
+on: push
 
 jobs:
-  pipeline-1:
-    uses: ./.github/workflows/step-${{ inputs.version }}.yml
-  pipeline-2:
-    uses: ./.github/workflows/step-2.yml
-
-
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')

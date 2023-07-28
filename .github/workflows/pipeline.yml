@@ -4,13 +4,8 @@ name: Main pipeline
 
 on:
   push:
-<<<<<<< Updated upstream
-    tags:
-      - "*.*.*"
-=======
     branches:
-    - "main'
->>>>>>> Stashed changes
+    - "main"
 
 jobs:
   build:

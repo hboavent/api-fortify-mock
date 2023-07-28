@@ -16,19 +16,26 @@ jobs:
         with:
           fetch-depth: 0
       - name: 'Get Previous tag'
-        id: previoustag
+        id: current-version
         uses: "WyriHaximus/github-action-get-previous-tag@v1"
         with:
           fallback: 1.0.0
-      - name: 'Get next minor version'
-        id: semvers
-        uses: "WyriHaximus/github-action-next-semvers@v1"
+      - name: Get commit prefix
+        uses: actions-ecosystem/action-regex-match@v2
+        id: semantic-tag
         with:
-          version: ${{ steps.previoustag.outputs.tag }}
+          text: ${{ github.event.head_commit.message }}
+          regex: '^(major|minor|patch)'
+      - uses: actions-ecosystem/action-bump-semver@v1
+        if: ${{ inputs.skip-bump == false}}
+        id: bump-semver
+        with:
+          current_version: ${{ steps.current-version.outputs.tag }}
+          level: ${{ steps.semantic-tag.outputs.match == '' && 'patch' || steps.semantic-tag.outputs.group1 }}
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
           token: ${{ secrets.GH_TOKEN  }}
           generate_release_notes: true
-          name: ${{ steps.semvers.outputs.tag }}
-          tag_name: ${{ steps.semvers.outputs.tag }}
+          name: ${{ steps.bump-semver.outputs.new_version }}
+          tag_name: ${{ steps.bump-semver.outputs.new_version }}

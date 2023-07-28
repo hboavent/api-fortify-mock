@@ -4,8 +4,7 @@ name: Main pipeline
 
 on:
   push:
-    tags:
-      - "*.*.*"
+    branches: main
 
 jobs:
   build:

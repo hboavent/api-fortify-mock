@@ -30,4 +30,5 @@ jobs:
         with:
           token: ${{ secrets.GH_TOKEN  }}
           generate_release_notes: true
+          name: ${{ steps.semvers.outputs.tag }}
           tag_name: ${{ steps.semvers.outputs.tag }}

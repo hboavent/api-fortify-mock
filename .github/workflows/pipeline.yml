@@ -1,4 +1,4 @@
-name: Main Leandro
+name: Main Mock
 on:
   push:
     branches:

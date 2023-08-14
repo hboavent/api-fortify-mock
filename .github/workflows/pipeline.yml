@@ -6,8 +6,5 @@ on:
 
 jobs:
   step-1:
-    uses: ./.github/workflows/step.yml
+    uses: ./.github/workflows/step-1.yml
     name: Teste
-    with:
-      message: ${{ github.event.head_commit.message }}
-      skip-bump: true

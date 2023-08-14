@@ -7,4 +7,4 @@ on:
 jobs:
   step-1:
     uses: ./.github/workflows/step-1.yml
-    name: Teste
+    name: Teste1

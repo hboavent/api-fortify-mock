@@ -4,7 +4,25 @@ on:
     branches:
     - "main"
 
+env:
+  VERSION: v5
+
 jobs:
   step-1:
     uses: ./.github/workflows/step-1.yml
-    name: Teste
+    name: Test
+  stale:
+
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+
+    steps:
+    - uses: actions/stale@$VERSION
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        stale-issue-message: 'Stale issue message'
+        stale-pr-message: 'Stale pull request message'
+        stale-issue-label: 'no-issue-activity'
+        stale-pr-label: 'no-pr-activity'

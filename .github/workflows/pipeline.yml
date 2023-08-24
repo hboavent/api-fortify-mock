@@ -13,13 +13,14 @@ jobs:
     name: Test
   step-2:
     uses: ./.github/workflows/step-1.yml
-    if: always() &&
-      needs.step-1.result == 'success' &&
-      (needs.step-2.result == 'success' || needs.step-2.result == 'skipped')
+    if: 1==2
     name: Test 2
   step-3:
     runs-on: ubuntu-latest
     needs: [step-1, step-2]    
+    if: always() &&
+      needs.step-1.result == 'success' &&
+      (needs.step-2.result == 'success' || needs.step-2.result == 'skipped')
     environment: dev
     steps:
       - name: broa

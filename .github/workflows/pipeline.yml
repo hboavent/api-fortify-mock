@@ -10,6 +10,7 @@ env:
 jobs:
   step-1:
     uses: ./.github/workflows/step-1.yml
+    if: 1 == 2
     name: Test
   step-2:
     uses: ./.github/workflows/step-1.yml

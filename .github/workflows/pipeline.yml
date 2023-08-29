@@ -64,7 +64,7 @@ jobs:
     name: Deploy UAT
     runs-on: ubuntu-latest
     environment: uat
-    needs: [tests]
+    needs: [deploy-dev]
     steps:
       - name: Build Image
         run: echo 'exec something'

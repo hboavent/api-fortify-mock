@@ -8,24 +8,94 @@ env:
   VERSION: v5
 
 jobs:
-  step-1:
-    uses: ./.github/workflows/step-1.yml
-    if: 1 == 2
-    name: Test
-  step-2:
-    uses: ./.github/workflows/step-1.yml
-    if: 1==2
-    name: Test 2
-  step-3:
+  tests:
+    name: Tests
     runs-on: ubuntu-latest
-    needs: [step-1, step-2]    
-    if: always() &&
-      needs.step-1.result == 'success' &&
-      (needs.step-2.result == 'success' || needs.step-2.result == 'skipped')
-    environment: dev
     steps:
-      - name: broa
-        run: |
-          echo 'Henrique'
-          echo '${{ vars.jacutinga }}'
-          mkdir '${{ vars.jacutinga }}'
+      - name: Install dependencies
+        run: echo 'exec something'
+
+      - name: Linter
+        run: echo 'exec something'
+
+      - name: Dependency check
+        run: echo 'exec something'
+
+      - name: Tests
+        run: echo 'exec something'
+
+      - name: Build
+        run: echo 'exec something'
+
+      - name: Fortify
+        run: echo 'exec something'
+
+      - name: Sonar
+        run: echo 'exec something'
+
+      - name: Bump Version
+        run: echo 'exec something'
+
+      - name: Tagging Version
+        run: echo 'exec something'
+
+      - name: Upload package to Nexus
+        run: echo 'exec something'
+
+  deploy-dev:
+    name: Deploy DEV
+    runs-on: ubuntu-latest
+    environment: dev
+    needs: [tests]
+    steps:
+      - name: Build Image
+        run: echo 'exec something'
+
+      - name: Scan Image
+        run: echo 'exec something'
+
+      - name: Push Image
+        run: echo 'exec something'
+
+      - name: Deploy to AKS
+        run: echo 'exec something'
+
+  deploy-uat:
+    name: Deploy UAT
+    runs-on: ubuntu-latest
+    environment: uat
+    needs: [tests]
+    steps:
+      - name: Build Image
+        run: echo 'exec something'
+
+      - name: Scan Image
+        run: echo 'exec something'
+
+      - name: Push Image
+        run: echo 'exec something'
+
+      - name: Deploy to AKS
+        run: echo 'exec something'
+
+  # step-1:
+  #   uses: ./.github/workflows/step-1.yml
+  #   if: 1 == 2
+  #   name: Test
+  # step-2:
+  #   uses: ./.github/workflows/step-1.yml
+  #   if: 1==2
+  #   name: Test 2
+  # step-3:
+  #   runs-on: ubuntu-latest
+  #   needs: [step-1, step-2]
+  #   if: always() &&
+  #     needs.step-1.result == 'success' &&
+  #     (needs.step-2.result == 'success' || needs.step-2.result == 'skipped')
+  #   environment: dev
+  #   steps:
+  #     - name: broa
+  #       run: |
+  #         echo 'Henrique'
+  #         echo '${{ vars.jacutinga }}'
+  #         mkdir '${{ vars.jacutinga }}'

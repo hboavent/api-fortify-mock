@@ -13,15 +13,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      - name: Checkout Reusable Workflow Scripts
-        uses: actions/checkout@v3
-        with:
-          repository: hboavent/action-test
-          ref: main
-          # path: .github/actions
+      # - name: Checkout Reusable Workflow Scripts
+      #   uses: actions/checkout@v3
+      #   with:
+      #     repository: hboavent/action-test
+      #     ref: main
+      #     # path: .github/actions
 
-      - run: |
-          ls -lah .github/actions
-          tree .
+      # - run: |
+          # ls -lah .github/actions
+          # tree .
 
-      - uses: ./.github/actions/action-test
+      - uses: hboavent/action-test/.github/actions/action-test@main

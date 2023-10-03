@@ -18,9 +18,10 @@ jobs:
         with:
           repository: hboavent/api-fortify-mock
           ref: main
-          path: .github/actions
+          # path: .github/actions
 
       - run: |
-          ls -lah .github/actions/action-test
+          ls -lah .github/actions
+          tree .
 
       - uses: ./.github/actions/action-test

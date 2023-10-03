@@ -12,4 +12,13 @@ jobs:
     name: Tests
     runs-on: ubuntu-latest
     steps:
-      - uses: ./github/actions/action-test@v1
+
+      - name: Checkout Reusable Workflow Scripts
+        uses: actions/checkout@v3
+        with:
+          repository: hboavent/api-fortify-mock
+          ref: main
+          path: .github/actions
+          token: ${{ secrets.PAT_SVCALMIACP }}
+
+      - uses: ./actions/action-test@v1

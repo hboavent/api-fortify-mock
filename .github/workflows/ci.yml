@@ -21,4 +21,6 @@ jobs:
           path: .github/actions
           # token: ${{ secrets.PAT_SVCALMIACP }}
 
-      - uses: ./actions/action-test@v1
+      - run: ls -lah
+
+      - uses: ./action-test@v1

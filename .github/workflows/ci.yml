@@ -1,0 +1,15 @@
+name: Main Mock
+on:
+  push:
+    branches:
+    - "main"
+
+env:
+  VERSION: v5
+
+jobs:
+  tests:
+    name: Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./github/actions/action-test@v1

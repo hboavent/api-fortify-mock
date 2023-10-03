@@ -23,4 +23,4 @@ jobs:
 
       - run: ls -lah
 
-      - uses: ./action-test@v1
+      - uses: ./githuub/actions/action-test@v1

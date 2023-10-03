@@ -19,7 +19,6 @@ jobs:
           repository: hboavent/api-fortify-mock
           ref: main
           path: .github/actions
-          # token: ${{ secrets.PAT_SVCALMIACP }}
 
       - run: |
           ls -lah .github/actions/action-test
